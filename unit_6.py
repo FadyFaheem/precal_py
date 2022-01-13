@@ -193,14 +193,19 @@ def comp_form_multiple():
         a = input("a: ")
         b = input("x1: ")
         c = input("y1: ")
-        d = input("x2: ")
-        e = input("b: ")
-        f = input("x2: ")
-        g = input("y2: ")
+        d = input("b: ")
+        e = input("x2: ")
+        f = input("y2: ")
+
+        g = (float(d) * float(e)) + (float(a) * float(b))
+        h = (float(d) * float(f)) + (float(a) * float(c))
+
+        print("v1 = " + str(g) + "\nv2 = " + str(h) + "\n<" + str(g) + ", " + str(h) + ">")
         comp_form_multiple()
     elif compmulti_menu == '2':
         print("""
 a(x1, y2) - b(x2, y2) = <v1, v2>""")
+        comp_form_multiple()
     elif compmulti_menu == '0':
         main()
     else:
