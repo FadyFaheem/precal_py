@@ -101,7 +101,7 @@ area = - * ac * SinB
         
 def minutes_decimals():
     print("\n1. Solve")
-    print("2. Example")
+    print("2. See example")
     print("0. Go back to Main Menu\n")
     minutes_menu = input("Pick mode: ")
 
@@ -159,18 +159,53 @@ sinA   sinC""")
 
 def comp_form():
     print("\n1. Solve")
-    print("2. See possible equations")
+    print("2. See example")
     print("0. Go back to Main Menu\n")
     comp_menu = input("Pick mode: ")
 
     if comp_menu == '1':
-        print("1")
+        a = input("\nx1: ")
+        b = input("y1: ")
+        c = input("x2: ")
+        d = input("y2: ")
+
+        e = float(c) - float(a) 
+        f = float(d) - float(b)
+
+        print("v1 = " + str(e) + "\nv2 = " + str(f) + "\n<" + str(e) + ", " + str(f) + ">")
         comp_form()
-    if comp_menu == '2':
-        print("""""")
+    elif comp_menu == '2':
+        print("""
+(x1 - x2, y1 - y2) = <v1 , v2>""")
         comp_form()
-    if comp_menu == '0':
+    elif comp_menu == '0':
         main()
+    else:
+        comp_form()
+
+def comp_form_multiple():
+    print("\n1. Solve")
+    print("2. See possible equations")
+    print("0. Go back to Main Menu\n")
+    compmulti_menu = input("Pick mode: ")
+
+    if compmulti_menu == '1':
+        a = input("a: ")
+        b = input("x1: ")
+        c = input("y1: ")
+        d = input("x2: ")
+        e = input("b: ")
+        f = input("x2: ")
+        g = input("y2: ")
+        comp_form_multiple()
+    elif compmulti_menu == '2':
+        print("""
+a(x1, y2) - b(x2, y2) = <v1, v2>""")
+    elif compmulti_menu == '0':
+        main()
+    else:
+        comp_form_multiple()
+
     
 def main():
     print("\nLaw of Cosines")
@@ -182,6 +217,7 @@ def main():
     print("5. Solve for missing side")
     print("\nVectors")
     print("6. Solve for Component Form")
+    print("7. Solve for Scalar Multiples Comp Form")
     print("\n0. Exit\n")
     program = input("(Int) Pick mode: ")
     if program == '0':
@@ -197,7 +233,9 @@ def main():
     elif program == '5':
         sin_side()
     elif program == '6':
-        comp_form
+        comp_form()
+    elif program == '7':
+        comp_form_multiple()
     else:
         print("\nYou did not choose a program. Resetting.")
         main()
