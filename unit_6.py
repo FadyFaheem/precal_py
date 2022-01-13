@@ -157,14 +157,31 @@ sinA   sinC""")
     else:
         sin_side()
 
+def comp_form():
+    print("\n1. Solve")
+    print("2. See possible equations")
+    print("0. Go back to Main Menu\n")
+    comp_menu = input("Pick mode: ")
+
+    if comp_menu == '1':
+        print("1")
+        comp_form()
+    if comp_menu == '2':
+        print("""""")
+        comp_form()
+    if comp_menu == '0':
+        main()
+    
 def main():
     print("\nLaw of Cosines")
-    print("1. Side to Degrees")
-    print("2. Angle Solve")
+    print("1. Side to Degrees (SSS)")
+    print("2. Angle Solve (SAS)")
     print("\nLaw of Sines")
     print("3. Area of a Triangle")
     print("4. Minutes, Decimals")
     print("5. Solve for missing side")
+    print("\nVectors")
+    print("6. Solve for Component Form")
     print("\n0. Exit\n")
     program = input("(Int) Pick mode: ")
     if program == '0':
@@ -179,6 +196,8 @@ def main():
         minutes_decimals()
     elif program == '5':
         sin_side()
+    elif program == '6':
+        comp_form
     else:
         print("\nYou did not choose a program. Resetting.")
         main()
