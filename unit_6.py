@@ -197,8 +197,9 @@ def comp_form_multiple():
         e = input("x2: ")
         f = input("y2: ")
 
-        g = (float(d) * float(e)) + (float(a) * float(b))
-        h = (float(d) * float(f)) + (float(a) * float(c))
+        g = int(d) * int(e) + int(a) * int(b)
+        h = int(d) * int(f) + int(a) * int(c)
+
 
         print("v1 = " + str(g) + "\nv2 = " + str(h) + "\n<" + str(g) + ", " + str(h) + ">")
         comp_form_multiple()
@@ -210,6 +211,27 @@ a(x1, y2) - b(x2, y2) = <v1, v2>""")
         main()
     else:
         comp_form_multiple()
+
+def direc_mag:
+    print("\n1. Solve")
+    print("2. See possible equations")
+    print("0. Go back to Main Menu\n")
+    mag_menu = input("Pick mode: ")
+
+    if mag_menu == '1':
+        a = input("m1: ")
+        b = input("X1: ")
+        c = input("Y1: ")
+        direc_mag()
+    elif mag_menu == '2':
+        print("""
+m * <cosV1, sinV2> = m1 * <cosX1, sinY1> + m2 * <cosX2, sinY1>""")
+        direc_mag()
+    elif mag_menu == '0':
+        main()
+    else:
+        direc_mag()
+    
 
     
 def main():
@@ -223,6 +245,7 @@ def main():
     print("\nVectors")
     print("6. Solve for Component Form")
     print("7. Solve for Scalar Multiples Comp Form")
+    print("8. Direction and Magnituide")
     print("\n0. Exit\n")
     program = input("(Int) Pick mode: ")
     if program == '0':
@@ -241,6 +264,8 @@ def main():
         comp_form()
     elif program == '7':
         comp_form_multiple()
+    elif program == '8':
+        direc_mag()
     else:
         print("\nYou did not choose a program. Resetting.")
         main()
