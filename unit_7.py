@@ -11,18 +11,50 @@ def solve_squares():
         b = input("b: ")
         c = input("c: ")
 
-        e = float(a)
-        f = float(b)
-        g = float(c)
+        a = float(a)
+        b = float(b)
+        c = float(c)
+
         if b == '0':
             c = float(c) * -1
             print("\nx = sqrt(" + str(c) + ")")
+        elif a == 1 or a == -1:
+            e = a
+            f = b
+            g = c * -1
+            
+            h = pow((f * 0.5), 2)
+            j = math.sqrt(h)
+            
+            i = g + h
+            
+            print("\naDon\'t forget to simplify the radical!")
+            print("X = " + str(j) + "+-sqrt(" + str(i) + ")")
         elif a != '1':
-            e = float(a) / float(a)
-            f = float(b) / float(a)
-            g = float(c) / float(a)
+            e = a / a
 
-            print(str(e) + "\n" + str(f) + "\n" + str(g))
+            if b % a == 0:
+                f = b / a
+            else:
+                f = float(b)
+
+            h = pow(f * 0.5, 2)
+            
+            if c % a == 0:
+                g = ((c * -1) / a)  + h 
+            else:
+                g = (float(c) * -1) + (h * a)
+
+            i = math.sqrt(h) * -1
+
+            if c % a != 0:
+                i = i * -1
+                g = g * a
+                print("\nbaDon\'t forget to simplify the radical!")
+                print("X = " + str(i) + "+-sqrt(" + str(g) + ")/" + str(a) + "")
+            else:
+                print("\ncDon\'t forget to simplify the radical!")
+                print("X = " + str(i) + "+-sqrt(" + str(g) + ")")
 
         
         solve_squares()
