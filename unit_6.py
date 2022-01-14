@@ -45,7 +45,7 @@ def side_solve():
     if side_menu == '1':
         a = input("\nSide 1: ")
         b = input("Side 2: ")
-        c = input("Angle 3:")
+        c = input("Angle 3: ")
 
         answer = math.sqrt(pow(float(a),2) + pow(float(b),2) - 2 * (float(a) * float(b)) * math.cos(math.radians(float(c))))
         print("Angle Length: " + str(answer))
@@ -73,6 +73,7 @@ def area_triangle():
     area_menu = input("Pick mode: ")
 
     if area_menu == '1':
+        
         a = input("\nSide 1:")
         b = input("Side 2:")
         c = input("Angle 3:")
@@ -131,6 +132,7 @@ def sin_side():
     sin_menu = input("Pick mode: ")
 
     if sin_menu == '1':
+        print("Angle 1 is the side you\'re solving for")
         a = input("Angle 1: ")
         b = input("Side 2: ")
         c = input("Angle 2: ")
@@ -169,10 +171,23 @@ def comp_form():
         c = input("x2: ")
         d = input("y2: ")
 
-        e = float(c) - float(a) 
-        f = float(d) - float(b)
-
+        e = float(c) - float(a) # X
+        f = float(d) - float(b) # Y
+        
+        g = math.sqrt(pow(e, 2) + pow(f, 2))
+        h = pow(e, 2) + pow(f, 2)
+        i = 0
+        
+        if e > 0 and f < 0:
+            i = 360
+        elif e < 0 and f > 0 or e < 0 and f < 0:
+            i = 180
+        
+        l = round(i + math.degrees(math.atan(f/e)), 0)
         print("v1 = " + str(e) + "\nv2 = " + str(f) + "\n<" + str(e) + ", " + str(f) + ">")
+        print("Only use magnituide if whole number!")
+        print("Magnitude before sqrt: √" + str(h) + "\nMagnitude: " + str(g))
+        print("Degrees: " + str(l) + "°")
         comp_form()
     elif comp_menu == '2':
         print("""
@@ -190,6 +205,7 @@ def comp_form_multiple():
     compmulti_menu = input("Pick mode: ")
 
     if compmulti_menu == '1':
+        print("if a negative is present, don\'t forget it!")
         a = input("a: ")
         b = input("x1: ")
         c = input("y1: ")
@@ -202,6 +218,8 @@ def comp_form_multiple():
 
 
         print("v1 = " + str(g) + "\nv2 = " + str(h) + "\n<" + str(g) + ", " + str(h) + ">")
+        
+        
         comp_form_multiple()
     elif compmulti_menu == '2':
         print("""
@@ -212,7 +230,7 @@ a(x1, y2) - b(x2, y2) = <v1, v2>""")
     else:
         comp_form_multiple()
 
-def direc_mag:
+def direc_mag():
     print("\n1. Solve")
     print("2. See possible equations")
     print("0. Go back to Main Menu\n")
@@ -222,6 +240,29 @@ def direc_mag:
         a = input("m1: ")
         b = input("X1: ")
         c = input("Y1: ")
+        d = input("m2: ")
+        e = input("X2: ")
+        f = input("Y2: ")
+        
+        g = (float(a) *  math.cos(math.radians(float(b)))) + (float(d) * math.cos(math.radians(float(e)))) # X
+        h = (float(a) * math.sin(math.radians(float(c)))) + (float(d) * math.sin(math.radians(float(f)))) # Y
+        i = math.sqrt(pow(g, 2) + pow(h, 2)) 
+        j = math.degrees(math.atan(h/g))
+        k = 0 
+        
+        if h < 0 and g > 0:
+            k = 360
+        elif h < 0 and g < 0 or h < 0 and g > 0:
+            k = 180
+        
+        l = round(k + j)
+        
+        print("\nx = " + str(g))
+        print("y = " + str(h))
+        print("Magnituide: " + str(i))
+        print("Degree: " + str(l))
+        print("Mag and Dir Form: " + str(round(i, 1)) + "<cos" + str(l) + "°, sin" + str(l) + "°>")
+        
         direc_mag()
     elif mag_menu == '2':
         print("""
@@ -232,7 +273,58 @@ m * <cosV1, sinV2> = m1 * <cosX1, sinY1> + m2 * <cosX2, sinY1>""")
     else:
         direc_mag()
     
+def singlecomp_form():
+    print("\n1. Solve")
+    print("2. See example")
+    print("0. Go back to Main Menu\n")
+    singlecomp_menu = input("Pick mode: ")
 
+    if singlecomp_menu == '1':
+        a = input("\nm: ")
+        b = input("x1: ")
+        c = input("y1: ")
+        
+        f = float(a) * float(b) # X
+        g = float(a) * float(c) # Y
+        
+        print("<" + str(f) +  ", " + str(g) + ">")
+        singlecomp_form()
+    elif singlecomp_menu == '2':
+        print("""
+<m * (x1 - y1)>""")
+        singlecomp_form()
+    elif singlecomp_menu == '0':
+        main()
+    else: 
+        singlecomp_form()
+   
+def solve_vec():
+    print("\n1. Solve")
+    print("2. See example")
+    print("0. Go back to Main Menu\n")
+    vec_menu = input("Pick mode: ")
+
+    if vec_menu == '1':
+        a = input("\nx1: ")
+        b = input("y1: ")
+        c = input("x2: ")
+        d = input("y2: ")
+
+        e = float(c) + float(a) # X
+        f = float(d) + float(b) # Y
+        
+        print("\nX = " + str(e))
+        print("Y = " + str(f))
+        solve_vec()
+    if vec_menu == '2':
+        print("""
+(X2 - X1,  Y2 - Y1)""")
+        solve_vec()
+    elif vec_menu == '0':
+        main()
+    else: 
+        solve_vec()
+    
     
 def main():
     print("\nLaw of Cosines")
@@ -243,9 +335,11 @@ def main():
     print("4. Minutes, Decimals")
     print("5. Solve for missing side")
     print("\nVectors")
-    print("6. Solve for Component Form")
+    print("6. Solve for Component Form w/ Mag and Dire")
     print("7. Solve for Scalar Multiples Comp Form")
-    print("8. Direction and Magnituide")
+    print("8. Single Multiple Comp Form")
+    print("9. Direction and Magnituide")
+    print("10. Solve for Vector")
     print("\n0. Exit\n")
     program = input("(Int) Pick mode: ")
     if program == '0':
@@ -265,7 +359,11 @@ def main():
     elif program == '7':
         comp_form_multiple()
     elif program == '8':
+        singlecomp_form()
+    elif program == '9':
         direc_mag()
+    elif program == '10':
+        solve_vec()
     else:
         print("\nYou did not choose a program. Resetting.")
         main()
