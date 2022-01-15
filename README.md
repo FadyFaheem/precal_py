@@ -7,7 +7,10 @@ Unit 7 and forth should be able to run on the new TI-84 CE. To fight against che
 
 Yes. I exposed the way to stop it because I felt like it.
 
+
+
 Why did I start this project?
+
 I got lazy on my math homework, this was just "faster"
 
 Is this stupid?
