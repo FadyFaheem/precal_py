@@ -1,68 +1,69 @@
 import math
 
 def solve_squares():
-    print("\n1. Solve")
+    print("1. Solve")
     print("2. Show Example")
-    print("0. Exit\n")
+    print("0. Exit")
     ss_menu = input("Pick Mode: ")
 
     if ss_menu == '1':
-        a = input("\na: ")
+        a = input("a: ")
         b = input("b: ")
         c = input("c: ")
-
+        
         a = float(a)
         b = float(b)
         c = float(c)
-
-        if b == '0':
-            c = float(c) * -1
-            print("\nx = sqrt(" + str(c) + ")")
-        elif a == 1 or a == -1:
-            e = a
-            f = b
-            g = c * -1
-            
-            h = pow((f * 0.5), 2)
-            j = math.sqrt(h)
-            
-            i = g + h
-            
-            print("\naDon\'t forget to simplify the radical!")
-            print("X = " + str(j) + "+-sqrt(" + str(i) + ")")
-        elif a != '1':
+        
+        if b == 0:
+            c = c * -1
+            print("x = +-sqrt(" + str(c) + ")")
+        if a != 1:
             e = a / a
-
+            
             if b % a == 0:
                 f = b / a
-            else:
-                f = float(b)
+            else: 
+                f = b
+                
+            h = math.pow((f * .5), 2)
 
-            h = pow(f * 0.5, 2)
-            
             if c % a == 0:
-                g = ((c * -1) / a)  + h 
+                g = ((c / a) * -1) + h 
             else:
-                g = (float(c) * -1) + (h * a)
-
-            i = math.sqrt(h) * -1
-
-            if c % a != 0:
-                i = i * -1
-                print("\nnon-Simplified Radical")
-                print("X = " + str(i) + "+-sqrt(" + str(g) + "/" + str(a) + ")")
-                g = g * a
-                print("\nbaDon\'t forget to simplify the radical!")
-                print("X = " + str(i) + "+-sqrt(" + str(g) + ")/" + str(a) + "")
-            else:
-                print("\ncDon\'t forget to simplify the radical!")
-                print("X = " + str(i) + "+-sqrt(" + str(g) + ")")
-
+                g = (c * -1) + (h * a)
         
+            i = math.sqrt(h)
+            if f < 0:
+                if c % a == 0:
+                    print("x = " + str(i) + "+-sqrt(" + str(g) + ")")
+                else:
+                    print("x = " + str(i) + "+-sqrt(" + str(g) + "/" + str(a) + ")")
+                    print("After simplifying")
+                    g = g * a
+                    print("x = " + str(i) + "+-sqrt(" + str(g) + ")/" + str(a))
+            else:
+                i = i * -1
+                if c % a == 0:
+                    print("x = " + str(i) + "+-sqrt(" + str(g) + ")")
+                else:
+                    print("x = " + str(i) + "+-sqrt(" + str(g) + "/" + str(a) + ")")
+                    print("After simplifying")
+                    g = g * a
+                    print("x = " + str(i) + "+-sqrt(" + str(g) + ")/" + str(a))
+        if a == 1:
+            e = a
+            f = b
+            g = (c * -1) + (math.pow((f * .5), 2))
+            h = math.sqrt(math.pow((f * .5), 2))
+            if f > 0:
+                h = h * -1
+                print("x = " + str(h) + "+-sqrt(" + str(g) + ")")
+            else:
+                print("x = " + str(h) + "+-sqrt(" + str(g) + ")")
         solve_squares()
     elif ss_menu == '2':
-        print("""
-ax^2 + bx + c = 0""")
+        print("""ax^2 + bx + c = 0""")
         solve_squares()
     elif ss_menu == '0':
         main()
@@ -70,9 +71,9 @@ ax^2 + bx + c = 0""")
         solve_squares()
 
 def circlerad_solve():
-    print("\n1. Solve")
+    print("1. Solve")
     print("2. Show Example")
-    print("0. Exit\n")
+    print("0. Exit")
     crs_menu = input("Pick Mode: ")
 
     if crs_menu == '1':
@@ -89,15 +90,14 @@ def circlerad_solve():
         d = float(d)
 
         ans = pow((a - c), 2) + pow((b - d), 2)
-        print("\nRadius without sqrt: sqrt(" + str(ans) + ")")
+        print("Radius without sqrt: sqrt(" + str(ans) + ")")
         ans = math.sqrt(ans)
         print("Radius with sqrt: " + str(ans))
         
         
         circlerad_solve()
     elif crs_menu == '2':
-        print("""
-(x - h)^2 + (y - k)^2 = r^2""")
+        print("""(x - h)^2 + (y - k)^2 = r^2""")
         circlerad_solve()
     elif crs_menu == '0':
         main()
@@ -105,9 +105,9 @@ def circlerad_solve():
         circlerad_solve()
 
 def x_y_intercepts():
-    print("\n1. Solve")
+    print("1. Solve")
     print("2. Show Example")
-    print("0. Exit\n")
+    print("0. Exit")
     xyi_menu = input("Pick Mode: ")
 
     if xyi_menu == '1':
@@ -129,9 +129,9 @@ def main():
     print("2. Solve for Circle radius")
     print("3. Solve for circle x,y intercepts")
 
-    print("\n0. Exit")
+    print("0. Exit")
 
-    mode = input("\nPick Mode: ")
+    mode = input("Pick Mode: ")
 
     if mode == '0':
         exit()
@@ -142,7 +142,7 @@ def main():
     elif mode == '3':
         x_y_intercepts()
     else:
-        print("\nYou didn\'t choose a program, Resetting...\n")
+        print("You didn\'t choose a program, Resetting...")
         main()
 
 main()
