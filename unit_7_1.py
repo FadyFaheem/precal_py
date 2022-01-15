@@ -83,18 +83,14 @@ def circlerad_solve():
         print("Circle Center")
         c = input("h: ")
         d = input("k: ")
-
         a = float(a)
         b = float(b)
         c = float(c)
         d = float(d)
-
         ans = pow((a - c), 2) + pow((b - d), 2)
         print("Radius without sqrt: sqrt(" + str(ans) + ")")
         ans = math.sqrt(ans)
         print("Radius with sqrt: " + str(ans))
-        
-        
         circlerad_solve()
     elif crs_menu == '2':
         print("""(x - h)^2 + (y - k)^2 = r^2""")
@@ -111,11 +107,28 @@ def x_y_intercepts():
     xyi_menu = input("Pick Mode: ")
 
     if xyi_menu == '1':
-        print("hello")
-        x_y_intercept()
+        a = input("h: ")
+        b = input("k: ")
+        c = input("r: ")
+        a = float(a)
+        b = float(b)
+        c = float(c)
+        #Solve X
+        d = c + (math.pow((0 - b), 2) * -1)
+        if d == 0:
+            print("X = " + str(e))
+        else:
+            print("Don\'t forget to simplify radical!\nX = " + str(a) + "+-sqrt(" + str(d) + ")")
+        #Solve y
+        f = c + (math.pow((0 - a), 2) * -1)
+        if f == 0:
+            print("Y = " + str(b))
+        else:
+            print("Don\'t forget to simplify radical!\nY = " + str(b) + "+-sqrt(" + str(f) + ")")
+        x_y_intercepts()
     elif xyi_menu == '2':
-        print("""
-""")
+        print("""(x - h)^2 + (0 - k)^2 = r
+(0 - h)^2 + (y - k)^2 = r""")
         x_y_intercepts()
     elif xyi_menu == '0':
         main()
