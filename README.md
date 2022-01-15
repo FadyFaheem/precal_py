@@ -19,6 +19,6 @@ Yes.
 
 ## Sincerity to:
 
-**Powel** my comp sci teacher. I know my code sucks. Leave me alone.
+**Powell** my comp sci teacher. I know my code sucks. Leave me alone.
 
 **Ross** my precal teacher. Sue me.
