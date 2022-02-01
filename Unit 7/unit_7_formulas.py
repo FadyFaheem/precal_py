@@ -41,7 +41,7 @@ def hyperbolas():
     print("1. Classify\n2. Horz Form\n3. Vert Form\n0. Exit")
     menu = input("Mode: ")
     if menu == '1':
-        print("A || C = 0, one sqr term")
+        print("A || C = 0, one sqr term\nPostive term first!")
         hyperbolas()
     if menu == '2':
         print("1. Formula\n2. Tran-Axis & Conj-Axis\n3. Vertices\n4. Co-Vertices\n5. Foci\n6. Asymptotes")
@@ -64,21 +64,21 @@ def hyperbolas():
         hyperbolas()
     if menu == '3':
         print("1. Formula\n2. Tran-Axis & Conj-Axis\n3. Vertices\n4. Co-Vertices\n5. Foci\n6. Asymptotes")
-        vert = input("Mode: ")
+        horz = input("Mode: ")
 
-        if vert == '1':
+        if horz == '1':
             print("""(y-k)^2 (x-h)^2
 ------ - ------ = 1
    a        b""")
-        elif vert == '2':
+        elif horz == '2':
             print("Tran- x=h\nConj- y=k")
-        elif vert == '3':
+        elif horz == '3':
             print("(h,k+a) & (h,k-a)")
-        elif vert == '4':
+        elif horz == '4':
             print("(h+b,k) & (h-b,k)")
-        elif vert == '5':
+        elif horz == '5':
             print("(h,k+c) & (h,k-c)")
-        elif vert == '6':
+        elif horz == '6':
             print("y= +-a/b (x-h)+k")
         hyperbolas()
     elif menu == '0':
@@ -91,6 +91,36 @@ def parabolas():
     menu = input("Mode: ")
     if menu == '1':
         print("A || C = 0, one sqr term")
+        parabolas()
+    if menu == '2':
+        print("1. Formula\n2. Focus\n3. Directrix\n4. Axis of Sym\n5. Opens")
+        vert = input("Mode: ")
+
+        if vert == '1':
+            print("(x-h)^2 = 4p(y-k)")
+        elif vert == '2':
+            print("(h,k+p)")
+        elif vert == '3':
+            print("y=k-p")
+        elif vert == '4':
+            print("x=h")
+        elif vert == '5':
+            print("Up / Down")
+        parabolas()
+    if menu == '3':
+        print("1. Formula\n2. Focus\n3. Directrix\n4. Axis of Sym\n5. Opens")
+        horz = input("Mode: ")
+
+        if horz == '1':
+            print("(y-k)^2 = 4p(x-h)")
+        elif horz == '2':
+            print("(h+p,k)")
+        elif horz == '3':
+            print("x=h-p")
+        elif horz == '4':
+            print("y=k")
+        elif horz == '5':
+            print("Left / Right")
         parabolas()
     elif menu == '0':
         main()
